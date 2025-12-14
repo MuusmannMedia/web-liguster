@@ -11,7 +11,6 @@ export default function LigusterLandingPage() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const totalSlides = 5;
 
-  // RETTELSE HER: Vi bruger 'number', fordi window.setInterval returnerer et tal ID i browseren
   const autoPlayRef = useRef<number | null>(null);
 
   const nextSlide = () => setCurrentSlide((p) => (p + 1) % totalSlides);
@@ -45,7 +44,7 @@ export default function LigusterLandingPage() {
     resetAutoPlay();
   };
 
-  // AI demo (placeholder – behold din senere)
+  // AI demo variabler (beholdt til senere brug)
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [neighborInput, setNeighborInput] = useState("");
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -63,34 +62,12 @@ export default function LigusterLandingPage() {
 
   return (
     <div className="min-h-screen">
-      {/* Lokal CSS (kan flyttes til globals.css senere) */}
-      <style
-        dangerouslySetInnerHTML={{
-          __html: `
-          body { font-family: Inter, sans-serif; }
-          .bg-liguster-gradient { background: linear-gradient(135deg, #0e2a47 0%, #1a4d7c 100%); }
-          .text-liguster { color: #1a4d7c; }
-          .bg-liguster { background-color: #1a4d7c; }
-          .hover-bg-liguster:hover { background-color: #0e2a47; }
-          .mockup-frame {
-            border: 12px solid #1f2937;
-            border-radius: 2.5rem;
-            overflow: hidden;
-            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
-            position: relative;
-            background: #000;
-          }
-          .fade-in-up { animation: fadeInUp 0.8s ease-out; }
-          @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        `,
-        }}
-      />
-
+      
       {/* Nav */}
       <nav className="absolute w-full z-20 top-0 start-0 border-b border-white/10">
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
           <a href="#" className="flex items-center space-x-3">
-            {/* Sørg for at denne fil findes i din public mappe */}
+            {/* Sørg for at Liguster-logo-NEG.png ligger i public mappen */}
             <img src="/Liguster-logo-NEG.png" className="h-10 md:h-12" alt="Liguster Logo" />
           </a>
           <button
@@ -157,6 +134,7 @@ export default function LigusterLandingPage() {
                   className="flex transition-transform duration-500 ease-in-out h-full w-full"
                   style={{ transform: `translateX(-${currentSlide * 100}%)` }}
                 >
+                  {/* HUSK: Disse filer skal ligge i din 'public' mappe med præcis disse navne */}
                   {[
                     "/app-01.png",
                     "/app-02.png",
