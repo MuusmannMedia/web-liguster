@@ -4,13 +4,15 @@ import React, { useEffect, useRef, useState } from "react";
 
 export default function LigusterLandingPage() {
   const [isLoginOpen, setIsLoginOpen] = useState(false);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [activeTab, setActiveTab] = useState<"neighbor" | "event">("neighbor");
 
   // Carousel
   const [currentSlide, setCurrentSlide] = useState(0);
   const totalSlides = 5;
 
-  const autoPlayRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  // RETTELSE HER: Vi bruger 'number', fordi window.setInterval returnerer et tal ID i browseren
+  const autoPlayRef = useRef<number | null>(null);
 
   const nextSlide = () => setCurrentSlide((p) => (p + 1) % totalSlides);
   const prevSlide = () => setCurrentSlide((p) => (p === 0 ? totalSlides - 1 : p - 1));
@@ -44,19 +46,20 @@ export default function LigusterLandingPage() {
   };
 
   // AI demo (placeholder – behold din senere)
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [neighborInput, setNeighborInput] = useState("");
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [neighborOutput, setNeighborOutput] = useState(
     "Indtast en udfordring til venstre for at se magien ske..."
   );
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [eventInput, setEventInput] = useState("");
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [eventOutput, setEventOutput] = useState(
     "Fortæl os lidt om jeres fest, så kommer vi med forslag..."
   );
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [loading, setLoading] = useState(false);
-
-  const TextRenderer = ({ text, italic = false }: { text: string; italic?: boolean }) => (
-    <div className={`whitespace-pre-wrap ${italic ? "italic" : ""}`}>{text}</div>
-  );
 
   return (
     <div className="min-h-screen">
@@ -79,15 +82,6 @@ export default function LigusterLandingPage() {
           }
           .fade-in-up { animation: fadeInUp 0.8s ease-out; }
           @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-          .loader {
-            border: 3px solid #f3f3f3;
-            border-radius: 50%;
-            border-top: 3px solid #1a4d7c;
-            width: 20px;
-            height: 20px;
-            animation: spin 1s linear infinite;
-          }
-          @keyframes spin { 0% { transform: rotate(0deg);} 100% { transform: rotate(360deg);} }
         `,
         }}
       />
@@ -96,6 +90,7 @@ export default function LigusterLandingPage() {
       <nav className="absolute w-full z-20 top-0 start-0 border-b border-white/10">
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
           <a href="#" className="flex items-center space-x-3">
+            {/* Sørg for at denne fil findes i din public mappe */}
             <img src="/Liguster-logo-NEG.png" className="h-10 md:h-12" alt="Liguster Logo" />
           </a>
           <button
