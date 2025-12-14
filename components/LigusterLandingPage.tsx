@@ -158,11 +158,11 @@ export default function LigusterLandingPage() {
                   style={{ transform: `translateX(-${currentSlide * 100}%)` }}
                 >
                   {[
-                    "/Simulator Screenshot - iPhone 17 Pro Max - 2025-11-08 at 14.37.56.png",
-                    "/Simulator Screenshot - iPhone 17 Pro Max - 2025-12-03 at 12.47.49.jpg",
-                    "/Simulator Screenshot - iPhone 17 Pro Max - 2025-11-08 at 14.40.11.jpg",
-                    "/Simulator Screenshot - iPhone 17 Pro Max - 2025-12-03 at 13.11.07.jpg",
-                    "/Simulator Screenshot - iPhone 17 Pro Max - 2025-12-03 at 13.12.41.jpg",
+                    "/app-01.png",
+                    "/app-02.png",
+                    "/app-03.png",
+                    "/app-04.png",
+                    "/app-05.png",
                   ].map((src, idx) => (
                     <div key={src} className="min-w-full h-full bg-black flex items-center justify-center">
                       <img src={src} className="w-full h-full object-cover" alt={`Slide ${idx + 1}`} />
